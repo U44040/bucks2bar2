@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucks to Bar</title>
+    <!-- Updated Bootstrap 5.3.8 CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Updated Bootstrap 5.3.8 JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+    <header class="bg-primary text-white text-center py-5">
+        <h1>Bucks to Bar</h1>
+        <p>Convert your bucks into bars!</p>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2" href="#">Bucks2Bar</a>
+        </div>
+    </nav>
+
+    <!-- ...existing code... -->
+    <main class="container mt-5">
+        <input type="text" class="form-control" id="username" placeholder="Enter username">
+        <h2>Welcome to Bucks to Bar</h2>
+        <p>This is a simple project to demonstrate the use of Bootstrap.</p>
+
+        <!-- Bootstrap Tabs Start -->
+        <ul class="nav nav-tabs" id="bucks2barTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#data" type="button"
+                    role="tab" aria-controls="data" aria-selected="true">
+                    Data
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart" type="button"
+                    role="tab" aria-controls="chart" aria-selected="false">
+                    Chart
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content mt-3" id="bucks2barTabsContent">
+            <div class="tab-pane fade show active" id="data" role="tabpanel" aria-labelledby="data-tab">
+                <!-- Data Tab Placeholder -->
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <!-- Column 1 content -->
+                        <div class="p-3 border bg-light">
+                            <strong>January</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-january-label">Income</span>
+                                        <input type="number" class="form-control" id="income-january"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-january-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-january-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-january"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-january-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- Column 2 content -->
+                        <div class="p-3 border bg-light">
+                            <strong>February</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-february-label">Income</span>
+                                        <input type="number" class="form-control" id="income-february"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-february-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-february-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-february"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-february-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+                        <!-- March -->
+                        <div class="p-3 border bg-light">
+                            <strong>March</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-march-label">Income</span>
+                                        <input type="number" class="form-control" id="income-march"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-march-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-march-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-march"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-march-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- April -->
+                        <div class="p-3 border bg-light">
+                            <strong>April</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-april-label">Income</span>
+                                        <input type="number" class="form-control" id="income-april"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-april-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-april-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-april"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-april-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- May -->
+                        <div class="p-3 border bg-light mt-4">
+                            <strong>May</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-may-label">Income</span>
+                                        <input type="number" class="form-control" id="income-may"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-may-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-may-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-may"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-may-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- June -->
+                        <div class="p-3 border bg-light mt-4">
+                            <strong>June</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-june-label">Income</span>
+                                        <input type="number" class="form-control" id="income-june"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-june-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-june-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-june"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-june-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- July -->
+                        <div class="p-3 border bg-light mt-4">
+                            <strong>July</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-july-label">Income</span>
+                                        <input type="number" class="form-control" id="income-july"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-july-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-july-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-july"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-july-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- August -->
+                        <div class="p-3 border bg-light mt-4">
+                            <strong>August</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-august-label">Income</span>
+                                        <input type="number" class="form-control" id="income-august"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-august-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-august-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-august"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-august-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- September -->
+                        <div class="p-3 border bg-light mt-4">
+                            <strong>September</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-september-label">Income</span>
+                                        <input type="number" class="form-control" id="income-september"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-september-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-september-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-september"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-september-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- October -->
+                        <div class="p-3 border bg-light mt-4">
+                            <strong>October</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-october-label">Income</span>
+                                        <input type="number" class="form-control" id="income-october"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-october-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-october-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-october"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-october-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- November -->
+                        <div class="p-3 border bg-light mt-4">
+                            <strong>November</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-november-label">Income</span>
+                                        <input type="number" class="form-control" id="income-november"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-november-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-november-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-november"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-november-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- December -->
+                        <div class="p-3 border bg-light mt-4">
+                            <strong>December</strong>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="income-december-label">Income</span>
+                                        <input type="number" class="form-control" id="income-december"
+                                            placeholder="Enter income" aria-label="Income"
+                                            aria-describedby="income-december-label">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="expenses-december-label">Expenses</span>
+                                        <input type="number" class="form-control" id="expenses-december"
+                                            placeholder="Enter expenses" aria-label="Expenses"
+                                            aria-describedby="expenses-december-label">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="chart" role="tabpanel" aria-labelledby="chart-tab">
+                <canvas id="barChart" width="400" height="200"></canvas>
+            </div>
+            <!-- Bootstrap button with the label  "Download"-->
+            <div class="mt-4 text-end">
+                <button id="download-btn" class="btn btn-success">
+                    <i class="bi bi-download"></i> Download
+                </button>
+            </div>
+
+        </div>
+        <!-- Bootstrap Tabs End -->
+    </main>
+    <!-- ...existing code... -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 Bucks to Bar. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
