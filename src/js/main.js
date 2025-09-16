@@ -5,6 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
+    
+    
+    for (let i = 0; i < cars.length; i++) {
+        const element = cars[i];
+        console.log(element);
+    }
+
     const getData = type =>
         months.map(month => {
             const input = document.getElementById(`${type}-${month.toLowerCase()}`);
@@ -62,12 +69,23 @@ document.addEventListener('DOMContentLoaded', function () {
         link.click();
     });
 
-    document.getElementById('username')?.addEventListener('input', event => {
-        const username = event.target.value;
-        console.log(`Username changed to: ${username}`);
-        const usernameInput = event.target;
-        // You can add additional logic here as needed
-        const usernameRegex = /^(?=.*[A-Z])(?=.*[^A-Za-z0-9\-])(?=.*\d)(?=.*[\-\W]).{8,}$/;
+    /**
+     * Validates the username input according to the following rules:
+     * - At least 8 characters long
+     * - Contains at least one uppercase letter
+     * - Contains at least one digit
+     * - Contains at least one special character (non-alphanumeric)
+     * 
+     * Updates the input element's CSS classes:
+     * - Adds 'is-valid' and removes 'is-invalid' if valid
+     * - Adds 'is-invalid' and removes 'is-valid' if invalid
+     *
+     * @param {HTMLInputElement} usernameInput - The input element containing the username to validate.
+     */
+    function validateUsername(usernameInput) {
+        const username = usernameInput.value;
+        // Username must be at least 8 characters, contain an uppercase letter, a digit, and a special character
+        const usernameRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
         if (usernameRegex.test(username)) {
             usernameInput.classList.remove('is-invalid');
             usernameInput.classList.add('is-valid');
@@ -75,5 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
             usernameInput.classList.remove('is-valid');
             usernameInput.classList.add('is-invalid');
         }
+    }
+
+    document.getElementById('username')?.addEventListener('input', event => {
+        console.log(`Username changed to: ${event.target.value}`);
+        validateUsername(event.target);
     });
 });
