@@ -5,18 +5,15 @@ document.addEventListener('DOMContentLoaded', function () {
         'July', 'August', 'September', 'October', 'November', 'December'
     ];
 
-    function getData(type) {
-        return months.map(month => {
+    const getData = type =>
+        months.map(month => {
             const input = document.getElementById(`${type}-${month.toLowerCase()}`);
             return input ? Number(input.value) || 0 : 0;
         });
-    }
 
-    function renderChart() {
+    const renderChart = () => {
         const ctx = document.getElementById('barChart').getContext('2d');
-        if (barChart) {
-            barChart.destroy();
-        }
+        if (barChart) barChart.destroy();
         barChart = new Chart(ctx, {
             type: 'bar',
             data: {
@@ -42,36 +39,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
-    }
+    };
 
     // Render chart when Chart tab is shown
-    const chartTab = document.getElementById('chart-tab');
-    chartTab.addEventListener('shown.bs.tab', renderChart);
+    document.getElementById('chart-tab')?.addEventListener('shown.bs.tab', renderChart);
 
-    // Optionally, update chart when data inputs change
+    // Update chart when data inputs change
     document.querySelectorAll('input[type="number"]').forEach(input => {
-        input.addEventListener('input', function () {
+        input.addEventListener('input', () => {
             if (document.getElementById('chart').classList.contains('active')) {
                 renderChart();
             }
         });
     });
-    // ...existing code...
 
     // Download canvas as image
-    document.getElementById('download-btn').addEventListener('click', function () {
+    document.getElementById('download-btn')?.addEventListener('click', () => {
         const canvas = document.getElementById('barChart');
         const link = document.createElement('a');
         link.href = canvas.toDataURL('image/png');
         link.download = 'bucks2bar-chart.png';
         link.click();
     });
-    document.getElementById('username').addEventListener('input', function (event) {
+
+    document.getElementById('username')?.addEventListener('input', event => {
         const username = event.target.value;
-        console.log('Username changed to:', username);
+        console.log(`Username changed to: ${username}`);
         const usernameInput = event.target;
         // You can add additional logic here as needed
-        const usernameRegex = /^(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.*\d).{8,}$/;
+        const usernameRegex = /^(?=.*[A-Z])(?=.*[^A-Za-z0-9\-])(?=.*\d)(?=.*[\-\W]).{8,}$/;
         if (usernameRegex.test(username)) {
             usernameInput.classList.remove('is-invalid');
             usernameInput.classList.add('is-valid');
@@ -79,8 +75,5 @@ document.addEventListener('DOMContentLoaded', function () {
             usernameInput.classList.remove('is-valid');
             usernameInput.classList.add('is-invalid');
         }
-
     });
-
-    
 });
